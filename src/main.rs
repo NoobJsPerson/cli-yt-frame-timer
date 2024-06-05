@@ -8,8 +8,8 @@ use std::path::PathBuf;
 
 #[derive(Parser)]
 struct Cli {
-    start: PathBuf,
-    end: PathBuf,
+    start_file_path: PathBuf,
+    end_file_path: PathBuf,
     framerate: f64,
 }
 fn format_time(time: f64) -> String {
@@ -41,11 +41,11 @@ fn format_time(time: f64) -> String {
 }
 fn main() {
     let args = Cli::parse();
-    let start = args.start.display();
-    let end = args.end.display();
+    let start = args.start_file_path.display();
+    let end = args.end_file_path.display();
     let framerate = args.framerate;
-    let start_content = read_to_string(&args.start).expect("could not read file");
-    let end_content = read_to_string(&args.end).expect("could not read file");
+    let start_content = read_to_string(&args.start_file_path).expect("could not read file");
+    let end_content = read_to_string(&args.end_file_path).expect("could not read file");
     let mut start_num: f64 = -1 as f64;
     let mut end_num: f64 = -1 as f64;
 
