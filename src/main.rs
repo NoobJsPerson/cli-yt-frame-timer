@@ -8,8 +8,11 @@ use std::path::PathBuf;
 
 #[derive(Parser)]
 struct Cli {
+	/// Path to the start file
     start_file_path: PathBuf,
+	/// Path to the end file
     end_file_path: PathBuf,
+	/// Framerate of the video
     framerate: f64,
 }
 fn format_time(time: f64) -> String {
